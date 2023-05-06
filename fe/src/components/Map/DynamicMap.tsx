@@ -21,6 +21,10 @@ const Map = ({ children, className, width, height, ...rest }: any) => {
         iconUrl: "/marker/greenMarker.svg",
         shadowUrl: "/marker/greenMarker.svg",
       });
+      Leaflet.Polyline.mergeOptions([
+        [47.9195184, 106.9355787],
+        [47.9245, 106.9219],
+      ]);
     })();
   }, []);
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <div className="bg-[#3a7143] text-white">
+    <div className="bg-[#3a7143] text-white z-50">
       <nav className="p-3">
         <ul className="flex gap-4">
           <li className="list-none">

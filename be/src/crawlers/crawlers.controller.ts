@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { CrawlersService } from './crawlers.service';
 import { CreateCrawlerDto } from './dto/create-crawler.dto';
@@ -23,6 +24,11 @@ export class CrawlersController {
   @Get()
   findAll() {
     return this.crawlersService.findAll();
+  }
+
+  @Get('/findnearest')
+  findNearest(@Query('lat') lat: number, @Query('long') long: number) {
+    return this.crawlersService.findNearest(lat, long);
   }
 
   @Get(':id')

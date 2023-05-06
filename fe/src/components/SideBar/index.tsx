@@ -3,7 +3,7 @@ import React from "react";
 
 function SideBar() {
   return (
-    <div className="w-[400px] h-full h-[100vh] bg-slate-500 text-white">
+    <div className="w-[400px] h-[100vh] bg-slate-500 text-white">
       <ul className="flex flex-col items-center">
         <li className="list-none">
           <Link href={"/products"}>Product List</Link>

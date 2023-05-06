@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 const DynamicMap = dynamic(() => import("./DynamicMap"), {
   ssr: false,
 });
-
+// next js deer javascript-iin global variable-uud ajilldaggui uchir dynamic gedgiig oruulj irj ene asuudliig shiidej bga.
 // Set default sizing to control aspect ratio which will scale responsively
 // but also help avoid layout shift
 

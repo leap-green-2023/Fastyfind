@@ -27,7 +27,6 @@ export class CrawlersService {
           },
         }).save(),
       );
-      console.log('amjilttai hadgalagdlaa...');
     } catch (error) {
       console.log('data hadgalhad aldaa garlaa...', error);
     }
@@ -37,6 +36,21 @@ export class CrawlersService {
 
   findAll() {
     return this.crawlerModel.find({});
+  }
+  findNearest(lat, long) {
+    console.log('lat long hevlegdlee:', [parseFloat(long), parseFloat(lat)]);
+    return this.crawlerModel.findOne({
+      location: {
+        $near: {
+          $geometry: {
+            type: 'Point',
+            coordinates: [parseFloat(long), parseFloat(lat)],
+          },
+          $minDistance: 1000,
+          $maxDistance: 5000,
+        },
+      },
+    });
   }
 
   findOne(id: number) {
