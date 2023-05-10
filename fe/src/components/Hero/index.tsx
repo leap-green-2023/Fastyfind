@@ -8,7 +8,7 @@ export default function App() {
   const [scene, setScene] = useState(new THREE.Scene());
   useEffect(() => {
     const loader = new GLTFLoader();
-    loader.load("/earth/scene.gltf", (gltf: any) => {
+    loader.load("/building/scene.gltf", (gltf: any) => {
       const animation = gltf.animations[0];
       setScene(gltf?.scene);
     });
@@ -20,7 +20,7 @@ export default function App() {
       <spotLight position={[10, 10, 10]} angle={20} penumbra={1} />
       <pointLight position={[-1, -1, -1]} />
       <OrbitControls />
-      <primitive object={scene} scale={1} />
+      <primitive object={scene} scale={0.02} />
     </Canvas>
   );
 }
