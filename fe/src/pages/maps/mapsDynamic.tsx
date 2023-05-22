@@ -1,10 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import axios, { Axios } from "axios";
 import Map from "@/components/Map/DynamicMap";
 import Spinner from "@/components/Spinner";
-import Image from "next/image";
 import L from "leaflet";
 import Menus from "@/components/Menus";
 
@@ -38,11 +36,6 @@ function Maps() {
         (position) => {
           setCurrentLoc([position.coords.latitude, position.coords.longitude]);
           setIsLoading(false);
-          console.log(
-            "my current loc:",
-            position.coords.latitude,
-            position.coords.longitude
-          );
         },
         (error) => {
           console.error("aldaaa", error);
@@ -54,14 +47,14 @@ function Maps() {
   }
   async function findNearestLocation() {
     const res = await axios.get(
-      `http://localhost:3000/crawlers/findnearest?lat=${currentLoc[0]}&long=${currentLoc[1]}`
+      `${process.env.NEXT_PUBLIC_URL}/crawlers/findnearest?lat=${currentLoc[0]}&long=${currentLoc[1]}`
     );
     const data = await res.data;
     setNearestLocation(data);
   }
 
   async function fetchLocations() {
-    const res = await axios.get("http://localhost:3000/crawlers");
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/crawlers`);
     const data = await res.data;
     setLocations(data);
   }
@@ -91,12 +84,12 @@ function Maps() {
                   key={idx}
                 >
                   <Popup>
-                    <Image
+                    {/* <Image
                       src={"https://back.emonos.mn/" + loc.photo}
                       alt="zurag"
                       width={300}
                       height={250}
-                    />
+                    /> */}
                     <h1 className="title">{loc.name}</h1>
                     <p>Онгойх цаг: {loc.working_hours_start}</p>
                     <p>Хаах цаг: {loc.working_hours_end}</p>
