@@ -1,11 +1,13 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-const DynamicMap = dynamic(() => import("./mapsDynamic"), {
-  ssr: false,
-});
+// import Map from "../../MapboxMap/mapboxMap";
+import MyPage from "./myPage";
+// const DynamicMap = dynamic(() => import("./myPage"), {
+//   ssr: false,
+// });
 
 function Maps({ pageProps }: any) {
-  return <DynamicMap {...pageProps} />;
+  return <MyPage {...pageProps} />;
 }
 export default Maps;

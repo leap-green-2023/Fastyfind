@@ -38,7 +38,6 @@ export class CrawlersService {
     return this.crawlerModel.find({});
   }
   findNearest(lat, long) {
-    console.log('lat long hevlegdlee:', [parseFloat(long), parseFloat(lat)]);
     return this.crawlerModel.findOne({
       location: {
         $near: {
